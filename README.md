@@ -106,10 +106,15 @@ As discussed early the inference engine produces fuzzy output based on the rule 
 To evaluate the FLC system, five test scenario were built, each of the test scenario has various input value ranging from high to low values:
 
 Scenario  Temperature	    Light	      Humidity	  Heater	    Light	    Fan
+
 1	          5°C	          20 lumens	   30%	      81.4%	     81.4%	    50%
+
 2	          22°C	          50 lumens	   60%	      50%	     50%	       47.3%
+
 3	          35°C	          80 lumens	   90%	      No Output  19%	       80%
+
 4	          8°C	          90 lumens	   20%	      83.2%	     25%	       75%
+
 5	          25°C	          10 lumens	   80%	      75.1%	     75.1%	    50%
 
 From the above table we can observer that when the temperature is low (5°C and 8°C) the heater output is high. Likewise, if the temperature is at moderate (22°C and 25°C) then the heater output stays at around 50-75%. Finally, if the temperature reaches higher values (35°C), there is no heater output as heating is unnecessary. Further, for the lower light input values (10-20 lumens) the light output is high and opposite for the higher light input values (80-90 lumens). Similarly, the FLC system seems to perfectly maintain the fan output based on temperature and humidity, for example when temperature is 35°C and humidity is at 90% the fan output is at 80%. Overall, with various test scenario, it is prominent that the system responds well to environmental change.
@@ -151,21 +156,30 @@ As explain above, the GA optimizes various control factors of FLC which are list
 •	Heater Control: The following table shows the SSE for heater before and after the use of GA methods, as a result it is safe to conclude that the Gaussian membership function used in the temperature to predict the heater output was highly effective in reducing the error. 
 
 Inputs (Temp, Light, Humidity)	Initial Error (Heater)	Optimized Error (Heater)
+      
        (55, 70, 130)	                   0.54	                   0.19
+       
        (50, 65, 120)	                   12.72	                1.43
+       
        (55, 70, 130)	                   0.54	                   0.19
 
 •	Light Control: The following table shows the SEE for light output before and after the use of GA methods on FLC. Hence, it is safe to conclude that the trapezoidal membership function used has optimized the FLC to obtained expected outputs by reducing the error.
 
 Inputs (Temp, Light, Humidity)	Initial Error (Light)	Optimized Error (Light)
+        
         (5, 20, 30)	                    265.97	                96.31
+        
         (50, 65, 120)	                  27.12	                4.79
+        
         (55, 70, 130)	                  27.89	                4.47
 
 •	Fan Speed Control: The following table shows the SSE values for the fan output before and after the use of GA method. Here, triangular membership function was used, which doesn’t have a huge effect on the decrement of the error, however it does slightly decrease the error but still improvements can be done.
 Inputs (Temp, Light, Humidity)	Initial Error (Fan)	Optimized Error (Fan)
+
          (50, 65, 120)	                125.59	             118.79
+         
          (50, 65, 120)	                117.97	             109.12
+         
          (55, 70, 130)	                125.59	             118.79
 
 3.5.	Membership Function Breakdown
@@ -185,6 +199,7 @@ Humidity (Triangular MFs): The following graph represents the membership functio
 ![Picture14](https://github.com/user-attachments/assets/44dfbb9e-5773-44fa-8e00-8dc531465323)
 
 Heater Output (Triangular MFs): Similar to the humidity, membership function, heater also utilizes the triangular membership function where each of the peak shows by the lines represents the consideration of particular type of heater level. Likewise, the overlap between the lines shows smooth transition as the system would treat 60 control value as both medium and high which helps to avoid sudden change (Belkadi, Mezghani and Mami, 2020).
+
 ![Picture15](https://github.com/user-attachments/assets/e18099d8-f588-4b1c-9b01-04968af3e35d)
 
 Light Output (Triangular MFs): The Light also utilizes the triangular membership function where each of the peak for different line means the system considers them to be of a specific type. Similarly, the overlap between the lines shows smooth transition and helps to avoid sudden change.
@@ -192,6 +207,7 @@ Light Output (Triangular MFs): The Light also utilizes the triangular membership
 ![Picture16](https://github.com/user-attachments/assets/345e3499-d5c0-4f2d-9eda-381ed5bd7d48)
 
 Fan (Triangular MFs): The Fan again utilizes the same triangular membership function as humidity, heater, and light. As mentioned earlier each of the peak means the system considers them to be of a specific type. Similarly, the overlap between the lines helps to avoid sudden change and allow smooth change between the fan level.
+
 ![Picture17](https://github.com/user-attachments/assets/c379f6e3-1f1d-4414-8ad3-2e75e92e557b)
 
  
@@ -225,15 +241,21 @@ Moreover, by looking at the average and the consistency of the solutions, the ev
 After running the algorithm, following were the output for both the function:
 
 •	F1 (Sphere Function):
+
 Algorithm	     Mean	                    Standard Deviation (Std)
+
   PSO	           7537.611398528888	           1655.9970941347706
+  
   DE	           6.852441419298838e-14	        9.583286059978823e-14
 
 From the above, table it is prominent that DE out performed PSO, as the mean and standard deviation for PSO are high suggesting it wasn’t close to the ideal solution and the solutions varied by a drastic measure. Nonetheless, the DE was quite close to the optimum solution as the mean is very close to zero value and likewise the solutions were consistent.
 
 •	F9 (Shifted Rastrigin Function): 
+
 Algorithm	     Mean	                    Standard Deviation (Std)
+
   PSO	           8243.523835556705	           2702.96999554988
+  
   DE	           99.16390584955525	           8.137266574246135
 
 From the above, table DE has once again out performed PSO, as the mean and standard deviation for PSO are high suggesting it wasn’t close to the ideal solution and the solutions varied by a drastic measure. Nonetheless, the DE was quite close to the optimum solution but in comparison to PSO by a huge margin and likewise the solutions were consistent as the Std is lower. 
