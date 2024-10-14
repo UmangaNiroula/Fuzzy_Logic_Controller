@@ -22,7 +22,8 @@ FLC nowadays has gained tons of attraction for areas such as smart home systems.
 2.2.	Selection of Fuzzy Inference Model
 For this report, the Mamdani fuzzy inference model is chosen. This model was considered due to its simplicity and the ability to mimic human-made decisions based on the conversion of inputs into outputs by utilizing the set of “if-then” fuzzy rules. The following figure illustrates the working principle of the Mamdani model where a crips input, for instance, a temperature of 30 degree Celsius can be considered. The crisp value is then converted into fuzzy values by mapping it into various ranges of membership functions which are either low, medium, or high. Following the fuzzy value, fuzzy rules are implemented where the inference engine processes trhough fuzzy logic and provide a fuzzy output that needs to be defuzzified to obtain a crips value. For example, if the output of the fan suggests medium speed based on the input parameters, then this value can be defuzzified into a crisp value of 55% of fan speed (Ahmadi et al. 2020).
 
-![Picture1](https://github.com/user-attachments/assets/2e206b35-d36f-4119-85fd-c5bac495d731) 
+![Picture1](https://github.com/user-attachments/assets/2e206b35-d36f-4119-85fd-c5bac495d731)
+
 Figure 1: Working Principle of Mamdani Fuzzy Inference Model (Ahmadi et al. 2020).
 
 Likewise, other models, such as Sugeno fuzzy models are also in common use which heavily relies on more mathematically driven approach. Implementing this model would shift the process into obtaining more precise output based on mathematically expressions. As a result of this implementation, the defuzzification process will be simplified as the fuzzy sets will be replaced by crisp functions. Hence, instead of obtaining a fuzzy output such as high, low, or medium, which requires to be defuzzified, the Sugeno model directly converts the output into a crisp value which is a precise numerical value. While the system’s efficiency may rise in comparison to Mamdani model, implementation of Sugeno will eliminate the user-friendly approach, as fuzzy outputs are easy to understand by humans rather than the mathematical approach. Overall, in the context of smart home applications where transparency is a top priority, the Mamdani model has a higher advantage of easy interpretability in comparison to Sugeno model (Mudia, 2020).
@@ -45,33 +46,42 @@ Fuzzy sets include:
 Here, the utilization of Gaussian function is used as it provide smooth transaction between categories like cold, warm, and hot. This membership function is ideal for temperature as this parameter has frequent changes in its value. As a result, the Gaussian function provides a realistic overlap in the fuzzy logic as a temperature of 15 degree celsius can both be considered warm and cold according to various scenarios (Lam, 2018). 
 
 ![Picture2](https://github.com/user-attachments/assets/4bd3e50e-ca53-45fa-82ff-3f5fb6693af1)
+
 Figure 2: Temperature Fuzzy Sets.
+
 As shown in the above figure, which illustrates the gaussian function for temperature by dividing its value into three categories: cold, warm, and hot. The blue curve represents cold which is a temperature around 0-15°C. Likewise, the orange curve shows the represents warm temperature, that peaks at 20°C, while the green represents hot temperature of value 25°C to 40°C.
 
 •	Light fuzzy sets:
 Trapezoidal function are used for the light, as it created a wide, flat are in the middle, meaning that when the light level reaches a certain level then it stays the same even with slight changes to the external parameter. For, example if the light is dim, the it will stay dim even with changes occurring in the external parameter. This helps to avoid the sudden change in light categories such as dim, moderate, and bright, making the system more stable and less sensitive to change (Ali et al., 2015).
 
 ![Picture3](https://github.com/user-attachments/assets/587efdc9-c180-47b0-b6b5-8ddeac93a40a)
+
 Figure 3: Light Fuzzy Sets.
+
 The above figure presents the trapezoidal function for light categories, which consists of dim, represented by blue line which decreases as the light increases, moderate, represented by orange line which peaks at 40 and 60, and finally bright, represented by green line which increases as the light value gets higher.
 
 •	Humidity fuzzy sets:
 For humidity, again trapezoidal function is used as similar to light for the same reason, as this function creates a wide flat area in between which is stable for even slight changes in the external parameter. 
 
 ![Picture4](https://github.com/user-attachments/assets/b7afcfc1-0dbc-483d-90a4-2a13dd948e54)
+
 Figure 4: Humidity Fuzzy Sets.
+
 Similar to the light fuzzy set diagram, this also has the same graph where the blue line represents low humidity that covers from 0 to 40%. Likewise, the orange line represents medium humidity that peaks around 50%, and finally the green line represents high humidity covering form 60% which increases further.
 
 •	Heater, light, and fan output sets: 
 For the output fuzzy sets, like heater, light, and fan Triangular functions is used as they are simple and faster for the system to compute. For, each of the outputs three categories have been identified which is "low," "medium," and "high." With the help of this function the transition process is smooth out, for example if the fan speed is moving from "low" to "medium" then, with the help of this function the transition is simple and effective without the need of complicated calculation (Ali et al., 2015). 
  
 ![Picture5](https://github.com/user-attachments/assets/97f93b42-ccfa-48f7-93ba-606558614fd7)
+
 Figure 5: Heater Fuzzy Sets.
 
 ![Picture6](https://github.com/user-attachments/assets/65d1b50b-5dcb-42ab-8258-04d21143c99c)
+
 Figure 6: Light Output Fuzzy Sets.
 
 ![Picture7](https://github.com/user-attachments/assets/4974a643-ae79-44eb-b2b9-8a3a45b60ccc)
+
 Figure 7: Fan Fuzzy Sets.
 
 2.4.	Rule Base Development
@@ -84,6 +94,7 @@ For the rule base development, a set of ten rules were considered which is shown
 Further, following figures shows the entire rules defined by the system.
 
 ![Picture8](https://github.com/user-attachments/assets/5ce7c019-f3f7-425f-aeee-5f601499188f)
+
 Figure 8: Defining Fuzzy Rules.
 
 2.5.	Defuzzification Method
@@ -94,12 +105,12 @@ As discussed early the inference engine produces fuzzy output based on the rule 
 2.6.1.	Test Scenarios and Simulation Results
 To evaluate the FLC system, five test scenario were built, each of the test scenario has various input value ranging from high to low values:
 
-Scenario  Temperature	    Light	      Humidity	  Heater	   Light	    Fan
+Scenario  Temperature	    Light	      Humidity	  Heater	    Light	    Fan
 1	          5°C	          20 lumens	   30%	      81.4%	     81.4%	    50%
-2	          22°C	        50 lumens	   60%	      50%	       50%	      47.3%
-3	          35°C	        80 lumens	   90%	      No Output	 19%	      80%
-4	          8°C	          90 lumens	   20%	      83.2%	     25%	      75%
-5	          25°C	        10 lumens	   80%	      75.1%	     75.1%	    50%
+2	          22°C	          50 lumens	   60%	      50%	     50%	       47.3%
+3	          35°C	          80 lumens	   90%	      No Output  19%	       80%
+4	          8°C	          90 lumens	   20%	      83.2%	     25%	       75%
+5	          25°C	          10 lumens	   80%	      75.1%	     75.1%	    50%
 
 From the above table we can observer that when the temperature is low (5°C and 8°C) the heater output is high. Likewise, if the temperature is at moderate (22°C and 25°C) then the heater output stays at around 50-75%. Finally, if the temperature reaches higher values (35°C), there is no heater output as heating is unnecessary. Further, for the lower light input values (10-20 lumens) the light output is high and opposite for the higher light input values (80-90 lumens). Similarly, the FLC system seems to perfectly maintain the fan output based on temperature and humidity, for example when temperature is 35°C and humidity is at 90% the fan output is at 80%. Overall, with various test scenario, it is prominent that the system responds well to environmental change.
 
@@ -107,17 +118,20 @@ From the above table we can observer that when the temperature is low (5°C and 
 To further visualize the understanding of the FLC, three graphs were created between temperature and light to visualize the heater output. Likewise, the relation between temperature and humidity against fan out was also created, and family the light output vs. light input was also shown in graph (Zhang, Sathishkumar & Samuel, 2020). The following graph shows, the role of temperature and light to control the heater output. As illustrated by the graph and the above test scenario that when the light and temperature values are low then the heater output is high and vice versa when the light and temperature values are high.  
 
 ![Picture9](https://github.com/user-attachments/assets/b9648d74-a1a9-4d0a-a305-089544d4f6d8)
+
 Figure 9: Heater Control Surface: Temperature vs Light Input.
 
 Similarly, the following 3D plot surface graph shows the visualization between temperature and humidity to control the fan output. As shown in the graph, the fan output value increases with the increase in temperature and humidity levels and vice versa for the lower levels. Further, there are dip and rise in fan output based on various combinations of temperature and humidity. 
 
 ![Picture10](https://github.com/user-attachments/assets/5590247d-7fa1-4911-98aa-f7ba4ae282de)
+
 Figure 10: Fan Control Surface: Temperature vs Humidity.
 
 Finally, the following line graph shows the relation between light input and output. Similar, to the explanation done in the test scenario with lower light input, the output is high and vice versa for the lower input light level, where at around 80 lumens and beyond, the output stabilizes at a low level.
 
 
 ![Picture11](https://github.com/user-attachments/assets/8de7c4ed-6139-4969-b50e-83c55474cd7f)
+
 Figure 11: Light Control Response: Light Input vs Light Output. 
 
 3.	Part 2: Genetic Algorithm Optimization of FLC
@@ -138,15 +152,15 @@ As explain above, the GA optimizes various control factors of FLC which are list
 
 Inputs (Temp, Light, Humidity)	Initial Error (Heater)	Optimized Error (Heater)
        (55, 70, 130)	                   0.54	                   0.19
-       (50, 65, 120)	                   12.72	                 1.43
+       (50, 65, 120)	                   12.72	                1.43
        (55, 70, 130)	                   0.54	                   0.19
 
 •	Light Control: The following table shows the SEE for light output before and after the use of GA methods on FLC. Hence, it is safe to conclude that the trapezoidal membership function used has optimized the FLC to obtained expected outputs by reducing the error.
 
 Inputs (Temp, Light, Humidity)	Initial Error (Light)	Optimized Error (Light)
         (5, 20, 30)	                    265.97	                96.31
-        (50, 65, 120)	                  27.12	                  4.79
-        (55, 70, 130)	                  27.89	                  4.47
+        (50, 65, 120)	                  27.12	                4.79
+        (55, 70, 130)	                  27.89	                4.47
 
 •	Fan Speed Control: The following table shows the SSE values for the fan output before and after the use of GA method. Here, triangular membership function was used, which doesn’t have a huge effect on the decrement of the error, however it does slightly decrease the error but still improvements can be done.
 Inputs (Temp, Light, Humidity)	Initial Error (Fan)	Optimized Error (Fan)
@@ -212,15 +226,15 @@ After running the algorithm, following were the output for both the function:
 
 •	F1 (Sphere Function):
 Algorithm	     Mean	                    Standard Deviation (Std)
-  PSO	         7537.611398528888	        1655.9970941347706
-  DE	         6.852441419298838e-14	    9.583286059978823e-14
+  PSO	           7537.611398528888	           1655.9970941347706
+  DE	           6.852441419298838e-14	        9.583286059978823e-14
 
 From the above, table it is prominent that DE out performed PSO, as the mean and standard deviation for PSO are high suggesting it wasn’t close to the ideal solution and the solutions varied by a drastic measure. Nonetheless, the DE was quite close to the optimum solution as the mean is very close to zero value and likewise the solutions were consistent.
 
 •	F9 (Shifted Rastrigin Function): 
 Algorithm	     Mean	                    Standard Deviation (Std)
-  PSO	         8243.523835556705	        2702.96999554988
-  DE	         99.16390584955525	        8.137266574246135
+  PSO	           8243.523835556705	           2702.96999554988
+  DE	           99.16390584955525	           8.137266574246135
 
 From the above, table DE has once again out performed PSO, as the mean and standard deviation for PSO are high suggesting it wasn’t close to the ideal solution and the solutions varied by a drastic measure. Nonetheless, the DE was quite close to the optimum solution but in comparison to PSO by a huge margin and likewise the solutions were consistent as the Std is lower. 
 
