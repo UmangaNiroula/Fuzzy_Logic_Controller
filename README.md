@@ -1,3 +1,7 @@
+# Elevator Pitch:
+
+This project aims to develop a smart home control system tailored for individuals with disabilities, enabling automatic control of essential devices—such as heaters, lights, and fans—based on real-time environmental inputs like temperature, light, and humidity. By using a Fuzzy Logic Controller (FLC), this system moves beyond traditional manual control, making it more adaptable and less dependent on human intervention. To enhance its effectiveness, we will optimize the FLC using Genetic Algorithms and compare alternative optimization techniques, including Particle Swarm Optimization and Differential Evolution, to assess their impact on system performance. This report details the design, optimization, and evaluation phases, setting the foundation for a more accessible and responsive home automation solution.
+
 # Fuzzy_Logic_Controller
 
 1.	Introduction
